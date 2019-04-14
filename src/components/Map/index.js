@@ -61,10 +61,11 @@ export default class Map extends Component {
                 showsUserLocation
                 style={{flex:1}}
                 region={region}
-                
                 loadingEnabled
                 ref = {el => (this.mapView = el)}
+                showsUserLocation
                 >
+
                     {destination && (
                         <Fragment>
                             <Directions
@@ -94,12 +95,12 @@ export default class Map extends Component {
                             </Marker>
                         </Fragment>
                     )}
-
+                
                 </MapView>
                 <Search 
                 onLocationSelected= {this.handleLocationSelected}
                 />
-
+                
             </View>
 
         );
