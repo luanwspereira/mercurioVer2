@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
-import MapView from 'react-native-maps';
+import React, { Component, Fragment } from 'react';
+import MapView, { Marker } from 'react-native-maps';
 import { PermissionsAndroid } from 'react-native';
 import { View } from 'react-native';
 import Search from '../Search';
 import Directions from '../Directions';
 import { getPixelSize } from '../utils';
+
+import markerImage from '../../assets/marker.png';
+
+import { LocationBox, LocationText } from './styles';
 
 export default class Map extends Component {
     state ={
@@ -62,20 +66,33 @@ export default class Map extends Component {
                 ref = {el => (this.mapView = el)}
                 >
                     {destination && (
-                        <Directions
-                            origin={region}
-                            destination = {destination}
-                            onReady={result => {
-                                this.mapView.fitToCoordinates(result.coordinates, {
-                                    edgePadding: {
-                                        right: getPixelSize(50),
-                                        left: getPixelSize(50),
-                                        bottom: getPixelSize(50),
-                                        top:getPixelSize(50)
-                                    }
-                                });
-                            }}
-                        />
+                        <Fragment>
+                            <Directions
+                                origin={region}
+                                destination = {destination}
+                                onReady={result => {
+                                    this.mapView.fitToCoordinates(result.coordinates, {
+                                        edgePadding: {
+                                            right: getPixelSize(50),
+                                            left: getPixelSize(50),
+                                            bottom: getPixelSize(50),
+                                            top:getPixelSize(50)
+                                        }
+                                    });
+                                }}
+                            />
+                            <Marker
+                            coordinate={destination} 
+                            anchor={{ x:0, y:0 }}
+                            image = {markerImage}
+                            >
+                                <LocationBox>
+                                    <LocationText>
+                                        {destination.title}
+                                    </LocationText>
+                                </LocationBox>
+                            </Marker>
+                        </Fragment>
                     )}
 
                 </MapView>
