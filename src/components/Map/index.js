@@ -19,7 +19,53 @@ export default class Map extends Component {
             destination: null,
         };
     }
+
+    async requestLocationPermission() 
+    {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          {
+            'title': 'Example App',
+            'message': 'Example App access to your location '
+          }
+        )
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          console.log("You can use the location")
+          alert("You can use the location");
+        } else {
+          console.log("location permission denied")
+          alert("Location permission denied");
+        }
+      } catch (err) {
+        console.warn(err)
+      }
+    }
+    async requestLocationPermission() {
+        const chckLocationPermission = PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
+        if (chckLocationPermission === PermissionsAndroid.RESULTS.GRANTED) {
+            alert("You've access for the location");
+        } else {
+            try {
+                const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+                    {
+                        'title': 'Cool Location App required Location permission',
+                        'message': 'We required Location permission in order to get device location ' +
+                            'Please grant us.'
+                    }
+                )
+                if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+                    alert("You've access for the location");
+                } else {
+                    alert("You don't have access for the location");
+                }
+            } catch (err) {
+                alert(err)
+            }
+        }
+    };
     async componentDidMount() {
+        this.requestLocationPermission();
         this._isMounted = true;
         navigator.geolocation.getCurrentPosition(
             ({ coords: { latitude, longitude } }) => {
@@ -33,10 +79,9 @@ export default class Map extends Component {
             },
             error => alert(JSON.stringify(error)), 
             {
-                //enableHighAccuracy: true,
-                timeout: 2000,
-                
-                maximumAge: 1000,
+                enableHighAccuracy: true,
+                timeout: 1000,
+                //maximumAge: 2000,
             }
         )
     }
@@ -59,9 +104,8 @@ export default class Map extends Component {
             <View style={{ flex: 1 }}>
                 <MapView
                     onMapReady={() => {
-                        PermissionsAndroid.request(
-                            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-                        )
+                        //PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)
+                        PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
                     }}
                     showsUserLocation
                     style={{ flex: 1 }}
