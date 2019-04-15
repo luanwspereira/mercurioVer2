@@ -42,7 +42,7 @@ export default class Search extends Component {
                     borderBottomWidth: 0
                 },
                 textInput: {
-                    height: '200%',
+                    height: 54,
                     margin: 0,
                     borderRadius: 0,
                     paddingTop:0,
