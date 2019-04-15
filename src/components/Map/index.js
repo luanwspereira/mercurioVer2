@@ -7,15 +7,18 @@ import Directions from '../Directions';
 import { getPixelSize } from '../utils';
 import Geocoder from 'react-native-geocoding';
 
+import { createDrawerNavigator } from 'react-navigation';
+
 import Details from '../Details'
 
 Geocoder.init('AIzaSyDfk76azc4xYaHTfdqY0JmtlE-Ks4GMu1A')
 
 import markerImage from '../../assets/marker.png';
 import backImage from '../../assets/back.png';
+import menuImage from '../../assets/menu.png'
 
 import { Back, LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall } from './styles';
-
+import { MenuIcon } from '../Menu/styles';
 
 export default class Map extends Component {
     constructor(props) {
@@ -185,7 +188,14 @@ export default class Map extends Component {
                         </Back>
                         <Details/>
                     </Fragment>
-                ) : ( <Search onLocationSelected={this.handleLocationSelected}/>
+                ) : (
+                <Fragment>
+                    <MenuIcon>
+                        <Image source={menuImage}/>
+                    </MenuIcon>
+                    <Search onLocationSelected={this.handleLocationSelected}/>
+                </Fragment>
+                
                 )}
                 
             </View>
@@ -193,3 +203,8 @@ export default class Map extends Component {
         );
     }
 }
+
+const AppDrawerNavigator = createDrawerNavigator({
+    Home: HomeScreen,
+    Turismo: TurismoScreen
+})

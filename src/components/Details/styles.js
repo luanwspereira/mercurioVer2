@@ -18,14 +18,18 @@ export const Container = styled.View`
 export const TypeTitle = styled.Text`
     font-size: 20px;
     color: #222;
+    text-align: center;
 `;
 export const TypeDescription = styled.Text`
     color: #666;
     font-size: 14px;
+    text-align: center;
 `;
 export const TypeImage = styled.Image`
     height: 80px;
-    margin: 10px 0;
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
 `;
 export const RequestButton = styled.TouchableOpacity`
     background: #222;
