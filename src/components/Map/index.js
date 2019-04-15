@@ -10,7 +10,7 @@ import markerImage from '../../assets/marker.png';
 
 import { LocationBox, LocationText } from './styles';
 
-export default class Map extends Component {
+export default class Map extends Component {  
     state ={
         region: null,
         destination: null,
@@ -27,11 +27,12 @@ export default class Map extends Component {
                     longitudeDelta: 0.0134
                 } 
             });
+            console.log('OI');
             }, //sucesso
             () => {}, //erro
             {
                 timeout: 2000,
-                enableHighAccuracy: true,
+                
                 maximumAge: 1000,
             }
         );
@@ -45,7 +46,7 @@ export default class Map extends Component {
                 longitude,
                 title: data.structured_formatting.main_text,
             }
-        })
+        });
     } 
 
     render(){
