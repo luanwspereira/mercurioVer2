@@ -10,34 +10,33 @@ import markerImage from '../../assets/marker.png';
 
 import { LocationBox, LocationText } from './styles';
 
+
 export default class Map extends Component {
-    constructor(props){
-    super(props);
-    this.state = {
-        region: null,
-        destination: null,
-        initialRegion: null,
-    };
-}
+    constructor(props) {
+        super(props);
+        this.state = {
+            region: null,
+            destination: null,
+        };
+    }
     async componentDidMount() {
+        this._isMounted = true;
         navigator.geolocation.getCurrentPosition(
             ({ coords: { latitude, longitude } }) => {
-                this.setState({
-                    region: {
-                        latitude,
-                        longitude,
-                        latitudeDelta: 0.0153,
-                        longitudeDelta: 0.0153
-                    }
-                });
-            }, //sucesso
-            () => { }, //erro
-            {
+                const region = {
+                    latitude,
+                    longitude,
+                    latitudeDelta: 0.0143,
+                    longitudeDelta: 0.0134
+                };
+                if (this._isMounted) this.setState({ region, regionSet: true });
+            },
+            error => alert(JSON.stringify(error)), {
+                //enableHighAccuracy: true,
                 timeout: 2000,
-                enableHighAccuracy: true,
-                maximumAge: 1000,
+                maximumAge: 1000
             }
-        );
+        )
     }
 
     handleLocationSelected = (data, { geometry }) => {
@@ -51,43 +50,43 @@ export default class Map extends Component {
         })
     }
 
-    render(){
+
+    render() {
         const { region, destination } = this.state;
-        return(
-            <View style={{flex:1}}>
+        return (
+            <View style={{ flex: 1 }}>
                 <MapView
-                onMapReady={() => {
-                    PermissionsAndroid.request(
-                    PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-                    )
-                }}
-                showsUserLocation
-                style={{flex:1}}
-                region={region}
-                loadingEnabled
-                ref = {el => (this.mapView = el)}
-                showsUserLocation
+                    onMapReady={() => {
+                        PermissionsAndroid.request(
+                            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+                        )
+                    }}
+                    showsUserLocation
+                    style={{ flex: 1 }}
+                    region={region}
+                    loadingEnabled
+                    ref={el => (this.mapView = el)}
                 >
                     {destination && (
                         <Fragment>
                             <Directions
                                 origin={region}
-                                destination = {destination}
+                                destination={destination}
                                 onReady={result => {
                                     this.mapView.fitToCoordinates(result.coordinates, {
                                         edgePadding: {
                                             right: getPixelSize(50),
                                             left: getPixelSize(50),
                                             bottom: getPixelSize(50),
-                                            top:getPixelSize(50)
+                                            top: getPixelSize(50)
                                         }
                                     });
                                 }}
                             />
                             <Marker
-                            coordinate={destination}
-                            anchor={{ x:0, y:0 }}
-                            image = {markerImage}
+                                coordinate={destination}
+                                anchor={{ x: 0, y: 0 }}
+                                image={markerImage}
                             >
                                 <LocationBox>
                                     <LocationText>
@@ -100,66 +99,10 @@ export default class Map extends Component {
 
                 </MapView>
                 <Search
-                onLocationSelected= {this.handleLocationSelected}
+                    onLocationSelected={this.handleLocationSelected}
                 />
-                </View>
+            </View>
 
         );
     }
 }
-
-/*
-
-render(){
-        const { region, destination } = this.state;
-        return(
-            <View style={{flex:1}}>
-                <MapView
-                onMapReady={() => {
-                    PermissionsAndroid.request(
-                    PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-                    )
-                }}
-                showsUserLocation
-                style={{flex:1}}
-                region={region}
-                loadingEnabled
-                ref = {el => (this.mapView = el)}
-                showsUserLocation
-                >
-                    {destination && (
-                        <Fragment>
-                            <Directions
-                                origin={region}
-                                destination = {destination}
-                                onReady={result => {
-                                    this.mapView.fitToCoordinates(result.coordinates, {
-                                        edgePadding: {
-                                            right: getPixelSize(50),
-                                            left: getPixelSize(50),
-                                            bottom: getPixelSize(50),
-                                            top:getPixelSize(50)
-                                        }
-                                    });
-                                }}
-                            />
-                            <Marker
-                            coordinate={destination}
-                            anchor={{ x:0, y:0 }}
-                            image = {markerImage}
-                            >
-                                <LocationBox>
-                                    <LocationText>
-                                        {destination.title}
-                                    </LocationText>
-                                </LocationBox>
-                            </Marker>
-                        </Fragment>
-                    )}
-
-                </MapView>
-                <Search
-                onLocationSelected= {this.handleLocationSelected}
-                />
-                </View>
-*/
