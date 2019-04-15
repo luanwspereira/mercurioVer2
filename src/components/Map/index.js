@@ -35,7 +35,8 @@ export default class Map extends Component {
             {
                 //enableHighAccuracy: true,
                 timeout: 2000,
-                maximumAge: 1000
+                
+                maximumAge: 1000,
             }
         )
     }
