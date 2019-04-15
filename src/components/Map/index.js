@@ -5,10 +5,13 @@ import { View } from 'react-native';
 import Search from '../Search';
 import Directions from '../Directions';
 import { getPixelSize } from '../utils';
+import Geocoder from 'react-native-geocoding';
 
+
+Geocoder.init('AIzaSyDfk76azc4xYaHTfdqY0JmtlE-Ks4GMu1A')
 import markerImage from '../../assets/marker.png';
 
-import { LocationBox, LocationText } from './styles';
+import { LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall } from './styles';
 
 
 export default class Map extends Component {
@@ -17,26 +20,32 @@ export default class Map extends Component {
         this.state = {
             region: null,
             destination: null,
+            duration: null,
+            location: null
         };
     }
     async componentDidMount() {
         this._isMounted = true;
         navigator.geolocation.getCurrentPosition(
-            ({ coords: { latitude, longitude } }) => {
+            async ({ coords: { latitude, longitude } }) => {
+                const response = await Geocoder.from({ latitude, longitude });
+                const address = response.results[0].formatted_address;
+                const location = address.substring(0, address.indexOf(','))
+
                 const region = {
                     latitude,
                     longitude,
                     latitudeDelta: 0.0143,
                     longitudeDelta: 0.0134
                 };
-                if (this._isMounted) this.setState({ region, regionSet: true });
+                if (this._isMounted) this.setState({ location, region, regionSet: true });
             },
             error => alert(JSON.stringify(error)), 
             {
-                //enableHighAccuracy: true,
+                enableHighAccuracy: true,
                 timeout: 2000,
                 
-                maximumAge: 1000,
+                //maximumAge: 3000,
             }
         )
     }
@@ -54,7 +63,7 @@ export default class Map extends Component {
 
 
     render() {
-        const { region, destination } = this.state;
+        const { region, destination, duration, location } = this.state;
         return (
             <View style={{ flex: 1 }}>
                 <MapView
@@ -75,6 +84,7 @@ export default class Map extends Component {
                                 origin={region}
                                 destination={destination}
                                 onReady={result => {
+                                    this.setState({duration: Math.floor(result.duration) })
                                     this.mapView.fitToCoordinates(result.coordinates, {
                                         edgePadding: {
                                             right: getPixelSize(50),
@@ -86,13 +96,30 @@ export default class Map extends Component {
                                 }}
                             />
                             <Marker
+                                coordinate={region}
+                                anchor={{ x: 0, y: 0 }}
+                                
+                            >
+                                <LocationBox>
+                                    <LocationText>
+                                        {location}
+                                    </LocationText>
+                                </LocationBox>
+                            </Marker>
+
+
+                            <Marker
                                 coordinate={destination}
                                 anchor={{ x: 0, y: 0 }}
                                 image={markerImage}
                             >
                                 <LocationBox>
+                                    <LocationTimeBox>
+                                        <LocationTimeText>{duration}</LocationTimeText>
+                                        <LocationTimeTextSmall>MIN</LocationTimeTextSmall>
+                                    </LocationTimeBox>
                                     <LocationText>
-                                        {destination.title}
+                                    {destination.title}
                                     </LocationText>
                                 </LocationBox>
                             </Marker>
