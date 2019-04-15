@@ -36,7 +36,7 @@ export default class Search extends Component {
                 textInputContainer: {
                     flex: 1,
                     backgroundColor: 'transparent',
-                    height: 54,
+                    height: '90%',
                     marginHorizontal: 20,
                     borderTopWidth: 0,
                     borderBottomWidth: 0

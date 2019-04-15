@@ -31,7 +31,8 @@ export default class Map extends Component {
                 };
                 if (this._isMounted) this.setState({ region, regionSet: true });
             },
-            error => alert(JSON.stringify(error)), {
+            error => alert(JSON.stringify(error)), 
+            {
                 //enableHighAccuracy: true,
                 timeout: 2000,
                 maximumAge: 1000
