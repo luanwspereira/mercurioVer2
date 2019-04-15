@@ -36,19 +36,19 @@ export default class Search extends Component {
                 textInputContainer: {
                     flex: 1,
                     backgroundColor: 'transparent',
-                    height: '90%',
+                    height: '100%',
                     marginHorizontal: 20,
                     borderTopWidth: 0,
                     borderBottomWidth: 0
                 },
                 textInput: {
-                    height: 54,
+                    height: '200%',
                     margin: 0,
                     borderRadius: 0,
                     paddingTop:0,
                     paddingBottom: 0,
-                    paddingLeft: 20,
-                    paddingRight:0,
+                    paddingLeft: 10,
+                    paddingRight: 10,
                     marginTop: 0,
                     marginLeft: 0,
                     marginRight: 0,
@@ -66,7 +66,7 @@ export default class Search extends Component {
                 },
                 listView: {
                     borderWidth: 1,
-                    borderColor: '#ddd',
+                    borderColor: '#6D3BD2',
                     backgroundColor: '#fff',
                     marginHorizontal: 20,
                     elevation: 5,
@@ -74,7 +74,8 @@ export default class Search extends Component {
                     shadowOpacity: 0.1,
                     shadowOffset: { x:0, y:0},
                     shadowRadius: 15,
-                    marginTop: 10
+                    borderRadius: 10,
+                    marginTop: '8%'
                 },
                 description: {
                     fontSize: 16,
