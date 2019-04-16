@@ -1,6 +1,8 @@
 import React from 'react';
-import Map from './components/Map'
+import Routes from './routes';
 
-const App = () => <Map/>
+const App = () => <Routes />
+
+
 
 export default App;

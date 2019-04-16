@@ -1,24 +1,21 @@
 import React, { Component, Fragment } from 'react';
 import MapView, { Marker } from 'react-native-maps';
-import { PermissionsAndroid } from 'react-native';
-import { View, Image } from 'react-native';
+import { PermissionsAndroid, View, Image, Text, Button } from 'react-native';
+import { createDrawerNavigator, createStackNavigator, createAppContainer, withNavigation } from 'react-navigation';
 import Search from '../Search';
 import Directions from '../Directions';
 import { getPixelSize } from '../utils';
 import Geocoder from 'react-native-geocoding';
-
-import { createDrawerNavigator } from 'react-navigation';
-
-import Details from '../Details'
-
-Geocoder.init('AIzaSyDfk76azc4xYaHTfdqY0JmtlE-Ks4GMu1A')
-
+import Details from '../Details';
+import PontosInfo from '../PontosInfo';
 import markerImage from '../../assets/marker.png';
 import backImage from '../../assets/back.png';
 import menuImage from '../../assets/menu.png'
-
 import { Back, LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall } from './styles';
 import { MenuIcon } from '../Menu/styles';
+
+
+Geocoder.init('AIzaSyDfk76azc4xYaHTfdqY0JmtlE-Ks4GMu1A');
 
 export default class Map extends Component {
     constructor(props) {
@@ -30,32 +27,10 @@ export default class Map extends Component {
             location: null
         };
     }
-
-    async requestLocationPermission() 
-    {
-      try {
-        const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-          {
-            'title': 'Example App',
-            'message': 'Example App access to your location '
-          }
-        )
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          console.log("You can use the location")
-          alert("You can use the location");
-        } else {
-          console.log("location permission denied")
-          alert("Location permission denied");
-        }
-      } catch (err) {
-        console.warn(err)
-      }
-    }
     async requestLocationPermission() {
         const chckLocationPermission = PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
         if (chckLocationPermission === PermissionsAndroid.RESULTS.GRANTED) {
-            alert("You've access for the location");
+            //alert("You've access for the location");
         } else {
             try {
                 const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -66,9 +41,9 @@ export default class Map extends Component {
                     }
                 )
                 if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-                    alert("You've access for the location");
+                    //alert("You've access for the location");
                 } else {
-                    alert("You don't have access for the location");
+                    //alert("You don't have access for the location");
                 }
             } catch (err) {
                 alert(err)
@@ -118,7 +93,9 @@ export default class Map extends Component {
     }
 
     render() {
+        const {navigate} = this.props.navigation;
         const { region, destination, duration, location } = this.state;
+        
         return (
             <View style={{ flex: 1 }}>
                 <MapView
@@ -186,25 +163,24 @@ export default class Map extends Component {
                         <Back onPress={this.handleBack}>
                             <Image source={backImage}/>
                         </Back>
-                        <Details/>
+                        <Details destination={destination}  navigation={this.props.navigation}/>
                     </Fragment>
                 ) : (
                 <Fragment>
                     <MenuIcon>
-                        <Image source={menuImage}/>
+                        <Image source={menuImage}/>                        
                     </MenuIcon>
                     <Search onLocationSelected={this.handleLocationSelected}/>
                 </Fragment>
                 
                 )}
-                
+            
             </View>
 
         );
     }
 }
 
-const AppDrawerNavigator = createDrawerNavigator({
-    Home: HomeScreen,
-    Turismo: TurismoScreen
-})
+
+//<Button title="azaia" onPress={() => this.props.navigation.navigate('PontosPage')}/>  
+
