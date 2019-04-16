@@ -22,31 +22,30 @@ export default class Details extends Component{
         return(<Container>
             <View style={{flex:1, flexDirection:"row"}}>
                 <View style={{flex:1, justifyContent:'center'}}>
-                    <TypeTitle>Popular</TypeTitle>
+                    <TypeTitle style={{color: "#6D3BD2"}}>Popular</TypeTitle>
                     <TypeDescription>Viagens do dia-a-dia</TypeDescription>
                     <TypeImage source={uberx}></TypeImage>
-                    <TypeTitle>Popular</TypeTitle>
                     <TypeDescription>R$4.00</TypeDescription>
                 </View>
                 <View style={{flex:1, justifyContent:'center'}}>
-                    <TypeTitle>Full-Guide</TypeTitle>
+                    <TypeTitle style={{color: "#6D3BD2"}}>Full-Guide</TypeTitle>
                     <TypeDescription>Seu guia passeia com você</TypeDescription>
                     <TypeImage source={fullGuide}></TypeImage>
-                    <TypeTitle>Full-Guide</TypeTitle>
                     <TypeDescription>R$15.00</TypeDescription>
                 </View>
                 <View style={{flex:1, justifyContent:'center'}}>
-                    <TypeTitle>Teller</TypeTitle>
+                    <TypeTitle style={{color: "#6D3BD2"}}>Teller</TypeTitle>
                     <TypeDescription>Ouça histórias do local até o destino</TypeDescription>
                     <TypeImage source={teller}></TypeImage>
-                    <TypeTitle>Teller</TypeTitle>
                     <TypeDescription>R$7.00</TypeDescription>
                 </View>
             </View>
-            <RequestButton onPress={() => this.props.navigation.navigate('PontosPage', this.props.destination.title)}>
+            <RequestButton style={{backgroundColor: "#6D3BD2"}}>
                 <RequestButtonText>Solicitar Mercurio</RequestButtonText>
             </RequestButton>
         </Container>
         );
     }
 }
+
+//<RequestButton onPress={() => this.props.navigation.navigate('PontosPage', this.props.destination.title)}></RequestButton>

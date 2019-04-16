@@ -69,6 +69,8 @@ export default class Search extends Component {
                     borderColor: '#6D3BD2',
                     backgroundColor: '#fff',
                     marginHorizontal: 20,
+                    paddingLeft: 10,
+                    paddingRight: 10,
                     elevation: 5,
                     shadowColor: '#000',
                     shadowOpacity: 0.1,
