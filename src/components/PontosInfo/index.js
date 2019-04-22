@@ -19,18 +19,6 @@ export default class PontosInfo extends Component {
     constructor(props) {
         super(props);
     }
-    componentWillMount(){
-        var config = {
-            apiKey: "AIzaSyCdTA1vFufG-ri2_pPy2dEkKgcNum-iong",
-            authDomain: "mercuriopi3.firebaseapp.com",
-            databaseURL: "https://mercuriopi3.firebaseio.com",
-            projectId: "mercuriopi3",
-            storageBucket: "mercuriopi3.appspot.com",
-            messagingSenderId: "896515964296"
-          };
-        firebase.initializeApp(config);
-        console.log('FB ', firebase);
-    }
 
   render() {
     console.log('Pontos Info: ', this.props.navigation.state.params);
