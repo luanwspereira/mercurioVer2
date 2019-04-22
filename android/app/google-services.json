@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "896515964296",
+    "firebase_url": "https://mercuriopi3.firebaseio.com",
+    "project_id": "mercuriopi3",
+    "storage_bucket": "mercuriopi3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896515964296:android:9fbdfff0bcd71b9f",
+        "android_client_info": {
+          "package_name": "com.mercuriover2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896515964296-j64d1ud49kpno9rl5u33gpknb3svn7oe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg79je4DDSvIYHFqw8tGDxQ-EOtO4Vy0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "896515964296-j64d1ud49kpno9rl5u33gpknb3svn7oe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
