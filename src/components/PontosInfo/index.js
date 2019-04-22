@@ -4,10 +4,10 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 
 import EstacaoDocas from '../../assets/EstacaoDocas.jpeg';
 
-//import firebase from 'react-native-firebase';
+import firebase from 'react-native-firebase';
 
 
-//firebase.auth().signInAnonymously().then(credentials)
+
 
 const styles = StyleSheet.create({
     texto: {
@@ -19,7 +19,7 @@ export default class PontosInfo extends Component {
     constructor(props) {
         super(props);
     }
-    /*componentWillMount(){
+    componentWillMount(){
         var config = {
             apiKey: "AIzaSyCdTA1vFufG-ri2_pPy2dEkKgcNum-iong",
             authDomain: "mercuriopi3.firebaseapp.com",
@@ -30,7 +30,7 @@ export default class PontosInfo extends Component {
           };
         firebase.initializeApp(config);
         console.log('FB ', firebase);
-    }*/
+    }
 
   render() {
     console.log('Pontos Info: ', this.props.navigation.state.params);
