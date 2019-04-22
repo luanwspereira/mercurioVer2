@@ -40,7 +40,7 @@ export default class Details extends Component{
                     <TypeDescription>R$7.00</TypeDescription>
                 </View>
             </View>
-            <RequestButton style={{backgroundColor: "#6D3BD2"}}>
+            <RequestButton style={{backgroundColor: "#6D3BD2"}} onPress={() => this.props.navigation.navigate('PontosPage', this.props.destination.title)}>
                 <RequestButtonText>Solicitar Mercurio</RequestButtonText>
             </RequestButton>
         </Container>

@@ -12,7 +12,7 @@ export default class Search extends Component {
         
         return <GooglePlacesAutocomplete
             placeholder='Para onde vamos?'
-            placeholderTextColor='#6D3BD2'
+            placeholderTextColor='#FFF'
             onPress={onLocationSelected}
             query={{
                 key: 'AIzaSyDfk76azc4xYaHTfdqY0JmtlE-Ks4GMu1A',
@@ -60,14 +60,15 @@ export default class Search extends Component {
                     borderWidth: 0.5,
                     borderColor: '#6D3BD2',
                     fontSize: 18,
-                    color: '#6D3BD2',
+                    color: '#FFF',
                     borderRadius: 20,
+                    backgroundColor:"#6D3BD2"
 
                 },
                 listView: {
                     borderWidth: 1,
-                    borderColor: '#6D3BD2',
-                    backgroundColor: '#fff',
+                    borderColor: '#FFF',
+                    backgroundColor: '#6D3BD2',
                     marginHorizontal: 20,
                     paddingLeft: 10,
                     paddingRight: 10,
@@ -77,10 +78,12 @@ export default class Search extends Component {
                     shadowOffset: { x:0, y:0},
                     shadowRadius: 15,
                     borderRadius: 10,
-                    marginTop: '8%'
+                    marginTop: '8%',
+                    color:'#FFF'
                 },
                 description: {
                     fontSize: 16,
+                    color:'#FFF'
                 },
                 row: {
                     padding: 20,

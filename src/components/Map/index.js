@@ -167,7 +167,7 @@ export default class Map extends Component {
                     </Fragment>
                 ) : (
                 <Fragment>
-                    <MenuIcon>
+                    <MenuIcon onPress={() => this.props.navigation.navigate('PontosPage')}>
                         <Image source={menuImage}/>                        
                     </MenuIcon>
                     <Search onLocationSelected={this.handleLocationSelected}/>
@@ -182,5 +182,4 @@ export default class Map extends Component {
 }
 
 
-//<Button title="azaia" onPress={() => this.props.navigation.navigate('PontosPage')}/>  
-
+//<Button title="azaia" onPress={() => this.props.navigation.navigate('PontosPage')}/>

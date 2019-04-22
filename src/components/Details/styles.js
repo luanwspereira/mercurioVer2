@@ -38,6 +38,7 @@ export const RequestButton = styled.TouchableOpacity`
     height: 44px;
     align-self: stretch;
     margin-top: 10px;
+    borderRadius: 20px;
 `;
 export const RequestButtonText = styled.Text`
     color: #fff;
