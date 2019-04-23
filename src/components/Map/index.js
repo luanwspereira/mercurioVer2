@@ -13,7 +13,6 @@ import backImage from '../../assets/back.png';
 import menuImage from '../../assets/menu.png'
 import { Back, LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall } from './styles';
 import { MenuIcon } from '../Menu/styles';
-import firebase from 'react-native-firebase';
 
 Geocoder.init('AIzaSyDfk76azc4xYaHTfdqY0JmtlE-Ks4GMu1A');
 
@@ -26,18 +25,6 @@ export default class Map extends Component {
             duration: null,
             location: null
         };
-    }
-    componentWillMount(){
-        var config = {
-            apiKey: "AIzaSyCdTA1vFufG-ri2_pPy2dEkKgcNum-iong",
-            authDomain: "mercuriopi3.firebaseapp.com",
-            databaseURL: "https://mercuriopi3.firebaseio.com",
-            projectId: "mercuriopi3",
-            storageBucket: "mercuriopi3.appspot.com",
-            messagingSenderId: "896515964296"
-          };
-          firebase.initializeApp(config);
-        console.log('FB ', firebase);
     }
     async requestLocationPermission() {
         const chckLocationPermission = PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
