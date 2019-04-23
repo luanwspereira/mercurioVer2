@@ -36,8 +36,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new RNFirebasePackage(),
             new RNGestureHandlerPackage(),
-            new MapsPackage()
-            //new RNFirebaseDatabasePackage()
+            new MapsPackage(),
+            new RNFirebaseDatabasePackage()
       );
     }
 

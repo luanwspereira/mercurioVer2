@@ -13,7 +13,6 @@ import backImage from '../../assets/back.png';
 import menuImage from '../../assets/menu.png'
 import { Back, LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall } from './styles';
 import { MenuIcon } from '../Menu/styles';
-import firebase from 'react-native-firebase';
 
 Geocoder.init('AIzaSyDfk76azc4xYaHTfdqY0JmtlE-Ks4GMu1A');
 
