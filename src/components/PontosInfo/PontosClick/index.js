@@ -41,12 +41,12 @@ export default class PontosClick extends Component{
                                     source={{uri:item.imageUrl}}
                                     style={{ height: 400, margin: 5, flex: 1}}
                                 />
-                                <Text style={{flex:1, padding:10, fontSize:14, color: 'white'}}>{item.descricao}</Text>
+                                <Text style={{flex:1, padding:20, fontSize:18, color: 'white'}}>{item.descricao}</Text>
                             </View>
                     )
                 }}>
                 </FlatList>
-            <Button title="Solicitar Mercúrio para este ponto" backgroundColor="#6D3BD2" destination={destination}  navigation={this.props.navigation} onPress={() => this.props.navigation.navigate('Map', {destination: destination})}></Button>
+            <Button title="Solicitar Mercúrio para este ponto" color="#6032bc" destination={destination}  navigation={this.props.navigation} onPress={() => this.props.navigation.navigate('Map', {destination: destination})}></Button>
             </View>
         )
     }
