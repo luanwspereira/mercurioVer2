@@ -22,12 +22,6 @@ export default class Details extends Component{
         return(<Container>
             <View style={{flex:1, flexDirection:"row"}}>
                 <View style={{flex:1, justifyContent:'center'}}>
-                    <TypeTitle style={{color: "#6D3BD2"}}>Popular</TypeTitle>
-                    <TypeDescription>Viagens do dia-a-dia</TypeDescription>
-                    <TypeImage source={uberx}></TypeImage>
-                    <TypeDescription>R$4.00</TypeDescription>
-                </View>
-                <View style={{flex:1, justifyContent:'center'}}>
                     <TypeTitle style={{color: "#6D3BD2"}}>Full-Guide</TypeTitle>
                     <TypeDescription>Seu guia passeia com você</TypeDescription>
                     <TypeImage source={fullGuide}></TypeImage>

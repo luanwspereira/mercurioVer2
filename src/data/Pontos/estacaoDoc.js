@@ -1,0 +1,9 @@
+const estacaoDoc = [
+    {
+        "key": "598a678278fee204ee51cd2c",
+        "name": "Estação das Docas",               
+        "imageUrl": "http://www.tratabrasil.org.br/blog/wp-content/uploads/2019/01/011_B315B7-Esta%C3%A7%C3%A3o-das-Docas-foto-Geraldo-Ramos.jpg",
+        "descricao": "Inaugurada em 13 de maio de 2000, a Estação das Docas é um dos espaços que mais refletem a região amazônica. Referência nacional, o complexo turístico e cultural congrega gastronomia, cultura, moda e eventos nos 500 metros de orla fluvial do antigo porto de Belém. São 32 mil metros quadrados divididos em três armazéns e um terminal de passageiros. O Armazém 1 foi batizado de Boulevard das Artes. O Armazém 2 passou a ser o Boulevard da Gastronomia. E o Armazém 3 é conhecido como Boulevard das Feiras e Exposições. O complexo possui, ainda, o Teatro Maria Silvia Nunes e o anfiteatro do Forte de São Pedro Nolasco. Detalhes Históricos  Os Boulevares foram resultado de um cuidadoso trabalho de restauração dos armazéns do porto da capital paraense. Os três galpões de ferro inglês são um exemplo da arquitetura característica da segunda metade do século XIX. Os guindastes externos, marcas registradas da Estação, foram fabricados nos Estados Unidos, no começo do século 20. Já a máquina a vapor em meados de 1800, fornecia energia para os equipamentos do porto. As ruínas do Forte de São Pedro Nolasco, onde foi construído um Anfiteatro, foram originalmente construídas para a defesa da orla em 1665. O espaço foi destruído após o Movimento da Cabanagem, em 1825, e revitalizado para a inauguração da Estação."
+    }
+];
+export default estacaoDoc;

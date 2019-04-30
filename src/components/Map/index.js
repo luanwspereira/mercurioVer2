@@ -57,7 +57,6 @@ export default class Map extends Component {
                 const response = await Geocoder.from({ latitude, longitude });
                 const address = response.results[0].formatted_address;
                 const location = address.substring(0, address.indexOf(','))
-
                 const region = {
                     latitude,
                     longitude,
@@ -74,7 +73,10 @@ export default class Map extends Component {
                 //maximumAge: 3000,
             }
         )
+        this.setState({destination: this.props.navigation.state.params.destination});
     }
+
+
 
     handleLocationSelected = (data, { geometry }) => {
         const { location: { lat: latitude, lng: longitude } } = geometry;
@@ -85,16 +87,28 @@ export default class Map extends Component {
                 title: data.structured_formatting.main_text,
             }
         })
+        console.log(this.state.destination.title);
+        console.log(data);
     }
 
     handleBack = () => {
-        this.setState ({destination:null})
+        this.setState ({destination: null})
+    }
+
+    setadorOficial = () => {
+        this.setState ({destination: {
+            latitude: -1.4494597,
+            longitude: -48.50084879999999,
+            latitudeDelta: 0.0143,
+            longitudeDelta: 0.0134,
+            title: "Estação das Docas"
+        } });
     }
 
     render() {
         const {navigate} = this.props.navigation;
-        const { region, destination, duration, location } = this.state;
-        
+        const { region, duration, destination, location } = this.state;
+        console.log(this.props.navigation.state.params.destination);
         return (
             <View style={{ flex: 1 }}>
                 <MapView
@@ -107,12 +121,12 @@ export default class Map extends Component {
                     region={region}
                     loadingEnabled
                     ref={el => (this.mapView = el)}
-                >
+                    >
                     {destination && (
                         <Fragment>
                             <Directions
                                 origin={region}
-                                destination={destination}
+                                destination={this.props.navigation.state.params.destination}
                                 onReady={result => {
                                     this.setState({duration: Math.floor(result.duration) })
                                     this.mapView.fitToCoordinates(result.coordinates, {
@@ -159,17 +173,16 @@ export default class Map extends Component {
                 </MapView>
                 {destination ? (
                     <Fragment>
-                        <Back onPress={this.handleBack}>
+                        <Back onPress={this.handleBack } >
                             <Image source={backImage}/>
                         </Back>
                         <Details destination={destination}  navigation={this.props.navigation}/>
                     </Fragment>
                 ) : (
                 <Fragment>
-                    <MenuIcon onPress={() => this.props.navigation.navigate('PontosPage')}>
+                    <MenuIcon onPress={() => this.setadorOficial()}>
                         <Image source={menuImage}/>                        
                     </MenuIcon>
-                    <Search onLocationSelected={this.handleLocationSelected}/>
                 </Fragment>
                 
                 )}
@@ -179,6 +192,13 @@ export default class Map extends Component {
         );
     }
 }
-
+/*
+                <Fragment>
+                    <MenuIcon onPress={() => this.setadorOficial()}>
+                        <Image source={menuImage}/>                        
+                    </MenuIcon>
+                    <Search onLocationSelected={this.handleLocationSelected}/>
+                </Fragment>
+*/
 
 //<Button title="azaia" onPress={() => this.props.navigation.navigate('PontosPage')}/>
