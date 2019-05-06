@@ -11,10 +11,7 @@ export default class PontosInfo extends Component{
     }
     render(){
         return(
-            <View style={{
-                flex: 1,
-                marginTop: 2
-            }}>
+            <View style={{flex: 1,marginTop: 2}}>
                 <FlatList 
                 data={flatListData}
                 renderItem = {({item, index})=>{
