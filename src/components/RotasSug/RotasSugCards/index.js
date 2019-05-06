@@ -3,7 +3,12 @@ import {FlatList, Image, Platform, StyleSheet, Text, TouchableOpacity, View} fro
 
 import styles from './styles';
 
+
 export default class FlatListItem extends Component{
+    verificarpage = (page) => { 
+        console.log(page)
+    }
+
     render(){
         return(
             <View sytle={{
@@ -16,7 +21,7 @@ export default class FlatListItem extends Component{
                     flexDirection: 'row',
                     backgroundColor: '#6D3BD2',
                 }}
-                onPress={() =>this.props.navigation.push('PontosClick')}>
+                onPress={() =>this.props.navigation.push(this.props.item.pagina)}>
                 
                     <Image
                         source={{uri: this.props.item.imageUrl}}
