@@ -67,10 +67,9 @@ export default class Map extends Component {
             },
             error => alert(JSON.stringify(error)), 
             {
-                enableHighAccuracy: true,
+                //enableHighAccuracy: true,
                 timeout: 2000,
-                
-                //maximumAge: 3000,
+                maximumAge: 3000,
             }
         )
         this.setState({destination: this.props.navigation.state.params.destination});
@@ -113,7 +112,7 @@ export default class Map extends Component {
             <View style={{ flex: 1 }}>
                 <MapView
                     onMapReady={() => {
-                        //PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)
+                        PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)
                         PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION)
                     }}
                     showsUserLocation
@@ -140,9 +139,8 @@ export default class Map extends Component {
                                 }}
                             />
                             <Marker
-                                coordinate={region}
+                                coordinate={this.props.navigation.state.params.destination}
                                 anchor={{ x: 0, y: 0 }}
-                                
                             >
                                 <LocationBox>
                                     <LocationText>
