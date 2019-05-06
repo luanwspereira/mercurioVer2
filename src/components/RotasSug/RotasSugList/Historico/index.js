@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 
 
-import rotasListData from '../../data/rotasListData';
-import FlatListItem from './RotasSugCards';
+import rotahistorica from '../../../../data/rotahistorica';
+import FlatListItem from './HistoricoCards';
 
-export default class RotasSug extends Component{
+export default class Historico extends Component{
     static navigationOptions = ({ navigation }) => {
         let headerTitle = "Rotas Sugeridas";
         return { headerTitle }
@@ -13,7 +13,7 @@ export default class RotasSug extends Component{
     constructor(props) {
         super(props);
         this.params = this.props.navigation.state.params;
-        console.log(rotasListData);
+        console.log(rotahistorica);
     }
 
     render(){
@@ -23,7 +23,7 @@ export default class RotasSug extends Component{
                 marginTop: 2
             }}>
                 <FlatList 
-                data={rotasListData}
+                data={rotahistorica}
                 renderItem = {({item, index})=>{
                     return(
                         <FlatListItem 
@@ -33,7 +33,6 @@ export default class RotasSug extends Component{
                         />
                     )
                 }}>
-            
                 </FlatList>
             </View>
         )
