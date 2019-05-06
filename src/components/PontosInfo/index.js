@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {FlatList, Platform, StyleSheet, Text, View} from 'react-native';
 
-import flatListData from '../../data/flatListData';
-import FlatListItem from './PontosCard';
+import pontosData from '../../data/pontosData';
+import PontosCard from './PontosCard';
 
 export default class PontosInfo extends Component{
     static navigationOptions = ({ navigation }) => {
@@ -11,16 +11,20 @@ export default class PontosInfo extends Component{
     }
     render(){
         return(
-            <View style={{flex: 1,marginTop: 2}}>
+            <View style={{
+                flex: 1,
+                backgroundColor:'#6d3bd2'
+            }}>
                 <FlatList 
-                data={flatListData}
+                data={pontosData}
                 renderItem = {({item, index})=>{
                     return(
-                        <FlatListItem 
+                        <PontosCard 
                             item={item} 
                             index={index}
                             navigation={this.props.navigation}
                         />
+                        
                     )
                 }}>
                 </FlatList>

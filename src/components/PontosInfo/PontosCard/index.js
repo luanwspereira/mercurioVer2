@@ -3,38 +3,28 @@ import {FlatList, Image, Platform, StyleSheet, Text, TouchableOpacity, View} fro
 
 import styles from './styles';
 
-export default class FlatListItem extends Component{
+export default class PontosCard extends Component{
     render(){
         return(
             <View sytle={{
                 flex:1,
                 flexDirection:'column',
+                borderRadius:3
             }}>
                 <TouchableOpacity 
-                style={{
-                    flex: 1,
-                    flexDirection: 'row',
-                    backgroundColor: '#6D3BD2',
-                }}
+                style={styles.Card}
                 onPress={() =>
-                    this.props.navigation.push('PontosClick')
+                    this.props.navigation.push('PontosClick',{
+                        urlPonto: '../../../data/Pontos/estacaoDoc.json'
+                    })
                 }>
                     <Image
                         source={{uri: this.props.item.imageUrl}}
-                        style={{width: 100, height: 100, margin: 5}}/>
-                    <View style={{
-                        flex:1,
-                        flexDirection:'column'
-                    }}>
-                        <Text style={styles.flatListItem}>{this.props.item.name}</Text>
-                        <Text style={styles.flatListItem}>{this.props.item.foodDescription}</Text>
-                    </View>
+                        style={styles.ImageCard}
+                    />
+                    <Text style={styles.Nome}>{this.props.item.name}</Text>
+                    <Text style={styles.Descricao}>{this.props.item.foodDescription}</Text>
                 </TouchableOpacity>
-                {/* Linha divisoria dos cards abaixo */}
-                <View style={{
-                    height: 1,
-                    backgroundColor:'white'
-                }}/>
             </View>
         )
     }
