@@ -16,7 +16,7 @@ export default class FlatListItem extends Component{
                     flexDirection: 'row',
                     backgroundColor: '#6D3BD2',
                 }}
-                onPress={() =>this.props.navigation.push('PontosClick')}>
+                onPress={() =>this.props.navigation.push('PontosClick', this.props.item)}>
                 
                     <Image
                         source={{uri: this.props.item.imageUrl}}
@@ -26,7 +26,7 @@ export default class FlatListItem extends Component{
                         flexDirection:'column'
                     }}>
                         <Text style={styles.flatListItem}>{this.props.item.name}</Text>
-                        <Text style={styles.flatListItem}>{this.props.item.description}</Text>
+                        <Text style={styles.flatListItem}>{this.props.item.descricao}</Text>
                     </View>
                 </TouchableOpacity>
                 {/* Linha divisoria dos cards abaixo */}
