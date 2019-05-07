@@ -8,7 +8,9 @@ const estacaoDoc = [
         "estacionamento":"Pago",
         "entrada":"Franca",
         "horario": "Segunda a Sabado 10:00 as 00:00",
-        "Lojas":"Sim"
+        "Lojas":"Sim",
+        "latitude": "-1.449389",
+        "longitude": "-48.500833"
     },
     {
         "key": "598a684f78fee204ee51cd2f",
@@ -19,7 +21,9 @@ const estacaoDoc = [
         "estacionamento":"Não possui",
         "entrada":"Franca",
         "horario": "Segunda a Sabado 9:00 as 18:00",
-        "Lojas":"Sim"
+        "Lojas":"Sim",
+        "latitude": "-1.463583",
+        "longitude": "-48.505222"
     },
     {
         "key": "598a687678fee204ee51cd30",
@@ -30,7 +34,9 @@ const estacaoDoc = [
         "estacionamento":"Não Possui",
         "entrada":"Franca",
         "horario": "Todos os dias 06:00 as 17:00",
-        "Lojas":"Não"
+        "Lojas":"Não",
+        "latitude": "-1.425861",
+        "longitude": "-48.444306"
     },
     {
         "key": "598a680178fee204ee51cd2e",
@@ -41,7 +47,9 @@ const estacaoDoc = [
         "estacionamento":"Pago",
         "entrada":"Franca",
         "horario": "Todos os dias 03:00 as 16:00",
-        "Lojas":"Sim"
+        "Lojas":"Sim",
+        "latitude": "-1.452361",
+        "longitude": "-48.50375"
     },
     {
         "key": "598a688878fee204ee51cd31",
@@ -52,7 +60,9 @@ const estacaoDoc = [
         "estacionamento":"Não possui",
         "entrada":"R$ 4,00",
         "horario": "Terça a domingo 10:00 as 15:00",
-        "Lojas":"Não"
+        "Lojas":"Não",
+        "latitude": "-1.454333",
+        "longitude": "-48.505194"
     },
     {
         "key": "598a68b778fee204ee51cd32",
@@ -63,7 +73,9 @@ const estacaoDoc = [
         "estacionamento":"Não",
         "entrada":"R$ 2,00",
         "horario": "Quarta a domingo 09:00 as 17:00",
-        "Lojas":"Não"
+        "Lojas":"Não",
+        "latitude": "-1.453194",
+        "longitude": "-48.475917"
     },
     {
         "key": "598a67c478fee204ee51cd2d",
@@ -74,7 +86,9 @@ const estacaoDoc = [
         "estacionamento":"Não",
         "entrada":"Pago",
         "horario": "Terça a sexta 09:00 as 17:00",
-        "Lojas":"Não"
+        "Lojas":"Não",
+        "latitude": "-1.4550555",
+        "longitude": "-48.505722"
     },
     {
         "key": "598a67c478fee204ee517777",
@@ -85,7 +99,9 @@ const estacaoDoc = [
         "estacionamento":"Não",
         "entrada":"Franca",
         "horario": "Terça a domingo 09:00 as 19:00",
-        "Lojas":"Sim"
+        "Lojas":"Sim",
+        "latitude": "-1.451852",
+        "longitude": "-48.473389"
     },
     {
         "key": "598a67c478fee204ee518888",
@@ -96,7 +112,9 @@ const estacaoDoc = [
         "estacionamento":"Não",
         "entrada":"R$ 2,00",
         "horario": "Terça a domingo 08:00 as 16:00",
-        "Lojas":"Não"
+        "Lojas":"Não",
+        "latitude": "-1.430111",
+        "longitude": "-48.456889"
     },
     {
         "key": "598a67c478fee204ee519999",
@@ -107,7 +125,9 @@ const estacaoDoc = [
         "estacionamento":"Não",
         "entrada":"Franca",
         "horario": "Domingo de 07:00 as 15:00",
-        "Lojas":"Sim"
+        "Lojas":"Sim",
+        "latitude": "-1.45125",
+        "longitude": "-48.494056"
     }
 
 ];
