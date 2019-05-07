@@ -14,11 +14,11 @@ export default class PontosClick extends Component{
         super(props);
         this.state = {
             destination: {
-                latitude: -1.4494597,
-                longitude: -48.50084879999999,
+                latitude: parseFloat(this.props.navigation.state.params.latitude, 10),
+                longitude: parseFloat(this.props.navigation.state.params.longitude, 10),
                 latitudeDelta: 0.0143,
                 longitudeDelta: 0.0134,
-                title: "Estação das Docas"},
+                title: this.props.navigation.state.params.name},
         };
     }
 
