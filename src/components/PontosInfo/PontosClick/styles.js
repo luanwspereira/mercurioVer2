@@ -16,7 +16,7 @@ export default styles = StyleSheet.create({
         marginVertical:1,
         marginHorizontal:0,
         borderColor:'#F2F1EF',
-        borderWidth: 1,
+        borderWidth: 2,
         borderStyle: 'solid',
         elevation:1,
     },

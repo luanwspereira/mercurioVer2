@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {FlatList, Image, Platform, StyleSheet, Text, View, TouchableHighlight, Button} from 'react-native';
 
-import flatListData from '../../../data/Pontos/estacaoDoc';
+import flatListData from '../../../data/Pontos/zapio';
 import { ScrollView } from 'react-native-gesture-handler';
 import styles from './styles';
 
@@ -14,13 +14,12 @@ export default class PontosClick extends Component{
         super(props);
         this.state = {
             destination: {
-                latitude: parseFloat(this.props.navigation.state.params.latitude, 10),
-                longitude: parseFloat(this.props.navigation.state.params.longitude, 10),
+                latitude: -1.4494597,
+                longitude: -48.50084879999999,
                 latitudeDelta: 0.0143,
                 longitudeDelta: 0.0134,
-                title: this.props.navigation.state.params.name},
+                title: "Estação das Docas"},
         };
-        console.log(this.state.destination);
     }
 
     render(){
@@ -32,32 +31,42 @@ export default class PontosClick extends Component{
                 flex: 1,
                 backgroundColor: '#ffffff'
             }}>
-                <View style={{flex:1}}>
-                    <Text sytle={styles.Name}>{this.props.navigation.state.params.name}</Text>
-                    <Image source={{uri:this.props.navigation.state.params.imageUrl}}/>
-                    <View style={{
-                        flex:1,
-                        flexDirection:'row', 
-                        justifyContent: 'space-evenly',
-                        textAlign: 'center'
-                    }}>
-                        <View >
-                            <Text >Estacionamento</Text>
-                            <Text >{this.props.navigation.state.params.estacionamento}</Text>
-                        </View>
+                <FlatList 
+                data={flatListData}
+                renderItem = {({item, index})=>{
+                    return(
+                            <View sytle={{flex:1}}>
+                                <Text style={styles.Name}>{this.props.navigation.state.params.name}</Text>
+                                <Image
+                                    source={{uri:this.props.navigation.state.params.imageUrl}}
+                                    style={styles.ImageShow}
+                                />
+                                <View style={{
+                                    flex:1,
+                                    flexDirection:'row', 
+                                    justifyContent: 'space-evenly',
+                                    textAlign: 'center'
+                                }}>
+                                    <View style={styles.CaixinhaInfo}>
+                                        <Text style={styles.Estacionamento}>Estacionamento</Text>
+                                        <Text style={styles.Estacionamento}>{this.props.navigation.state.params.estacionamento}</Text>        
+                                    </View>
 
-                        <View >
-                            <Text >Entrada</Text>
-                            <Text>{this.props.navigation.state.params.entrada}</Text>
-                        </View>
-                        
-                        <View >
-                            <Text>Lojas</Text>
-                            <Text>{this.props.navigation.state.params.Lojas}</Text>
-                        </View>
-                    </View>
-                    <Text style={styles.Descricao}>{this.props.navigation.state.params.descricao}</Text>
-                </View>
+                                    <View style={styles.CaixinhaInfo}>
+                                        <Text style={styles.Estacionamento}>Entrada</Text>
+                                        <Text style={styles.Estacionamento}>{this.props.navigation.state.params.entrada}</Text>
+                                    </View>
+                                    
+                                    <View style={styles.CaixinhaInfo}>
+                                        <Text style={styles.Estacionamento}>Lojas</Text>
+                                        <Text style={styles.Estacionamento}>{this.props.navigation.state.params.Lojas}</Text>
+                                    </View>
+                                </View>
+                                <Text style={styles.Descricao}>{this.props.navigation.state.params.descricao}</Text>
+                            </View>
+                    )
+                }}>
+</FlatList>
                    
             <Button title="Solicitar Mercúrio para este ponto" color="#6032bc" destination={destination}  navigation={this.props.navigation} onPress={() => this.props.navigation.navigate('Map', {destination: destination})}></Button>
             </View>
