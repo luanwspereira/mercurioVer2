@@ -5,6 +5,7 @@ import styles from './styles';
 
 export default class PontosCard extends Component{
     render(){
+        console.log(this.props.item);
         return(
             <View sytle={{
                 flex:1,
@@ -14,16 +15,14 @@ export default class PontosCard extends Component{
                 <TouchableOpacity 
                 style={styles.Card}
                 onPress={() =>
-                    this.props.navigation.push('PontosClick',{
-                        urlPonto: '../../../data/Pontos/estacaoDoc.json'
-                    })
+                    this.props.navigation.push('PontosClick', this.props.item)
                 }>
                     <Image
                         source={{uri: this.props.item.imageUrl}}
                         style={styles.ImageCard}
                     />
                     <Text style={styles.Nome}>{this.props.item.name}</Text>
-                    <Text style={styles.Descricao}>{this.props.item.foodDescription}</Text>
+                    <Text style={styles.Descricao}>{this.props.item.descricao}</Text>
                 </TouchableOpacity>
             </View>
         )

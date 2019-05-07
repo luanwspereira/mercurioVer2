@@ -25,7 +25,7 @@ export default class PontosClick extends Component{
     render(){
         const {destination} = this.state;
         const {navigate} = this.props.navigation; 
-        console.log("Pontos Click", destination);
+        console.log(this.props.navigation.state.params);
         return(
             <View style={{
                 flex: 1,

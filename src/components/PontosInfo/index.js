@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {FlatList, Platform, StyleSheet, Text, View} from 'react-native';
 
-import pontosData from '../../data/pontosData';
+import estacaoDoc from '../../data/Pontos/estacaoDoc';
 import PontosCard from './PontosCard';
 
 export default class PontosInfo extends Component{
@@ -16,7 +16,7 @@ export default class PontosInfo extends Component{
                 backgroundColor:'#6d3bd2'
             }}>
                 <FlatList 
-                data={pontosData}
+                data={estacaoDoc}
                 renderItem = {({item, index})=>{
                     return(
                         <PontosCard 
