@@ -32,7 +32,7 @@ export default styles = StyleSheet.create({
         flex:1, 
         padding:20, 
         fontSize:18, 
-        color: 'black'
+        color:'black'
     },
     Estacionamento:{
         color:'white',

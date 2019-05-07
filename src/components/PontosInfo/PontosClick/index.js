@@ -3,7 +3,7 @@ import {FlatList, Image, Platform, StyleSheet, Text, View, TouchableHighlight, B
 
 import flatListData from '../../../data/Pontos/estacaoDoc';
 import { ScrollView } from 'react-native-gesture-handler';
-import styles from './styles'
+import styles from './styles';
 
 export default class PontosClick extends Component{
     static navigationOptions = ({ navigation }) => {
@@ -32,34 +32,32 @@ export default class PontosClick extends Component{
                 flex: 1,
                 backgroundColor: '#ffffff'
             }}>
-                            <View>
-                                <Text>{this.props.navigation.state.params.name}</Text>
-                                <Image
-                                    source={{uri:this.props.navigation.state.params.imageUrl}}
-                                />
-                                <View style={{
-                                    flex:1,
-                                    flexDirection:'row', 
-                                    justifyContent: 'space-evenly',
-                                    textAlign: 'center'
-                                }}>
-                                    <View >
-                                        <Text >Estacionamento</Text>
-                                        <Text >{this.props.navigation.state.params.estacionamento}</Text>
-                                    </View>
+                <View style={{flex:1}}>
+                    <Text sytle={styles.Name}>{this.props.navigation.state.params.name}</Text>
+                    <Image source={{uri:this.props.navigation.state.params.imageUrl}}/>
+                    <View style={{
+                        flex:1,
+                        flexDirection:'row', 
+                        justifyContent: 'space-evenly',
+                        textAlign: 'center'
+                    }}>
+                        <View >
+                            <Text >Estacionamento</Text>
+                            <Text >{this.props.navigation.state.params.estacionamento}</Text>
+                        </View>
 
-                                    <View >
-                                        <Text >Entrada</Text>
-                                        <Text>{this.props.navigation.state.params.entrada}</Text>
-                                    </View>
-                                    
-                                    <View >
-                                        <Text>Lojas</Text>
-                                        <Text>{this.props.navigation.state.params.Lojas}</Text>
-                                    </View>
-                                </View>
-                                <Text style={styles.Descricao}>{this.props.navigation.state.params.descricao}</Text>
-                            </View>
+                        <View >
+                            <Text >Entrada</Text>
+                            <Text>{this.props.navigation.state.params.entrada}</Text>
+                        </View>
+                        
+                        <View >
+                            <Text>Lojas</Text>
+                            <Text>{this.props.navigation.state.params.Lojas}</Text>
+                        </View>
+                    </View>
+                    <Text style={styles.Descricao}>{this.props.navigation.state.params.descricao}</Text>
+                </View>
                    
             <Button title="Solicitar Mercúrio para este ponto" color="#6032bc" destination={destination}  navigation={this.props.navigation} onPress={() => this.props.navigation.navigate('Map', {destination: destination})}></Button>
             </View>
