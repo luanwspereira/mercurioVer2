@@ -49,10 +49,7 @@ export default class PontosClick extends Component{
                                 }}>
                                     <View style={styles.CaixinhaInfo}>
                                         <Text style={styles.Estacionamento}>Estacionamento</Text>
-                                        <Image
-                                            source={{uri:item.estacionamento}}
-                                            style={styles.EstacionamentoImage}
-                                        ></Image>
+                                        <Text style={styles.Estacionamento}>{item.estacionamento}</Text>
                                     </View>
 
                                     <View style={styles.CaixinhaInfo}>
@@ -62,10 +59,7 @@ export default class PontosClick extends Component{
                                     
                                     <View style={styles.CaixinhaInfo}>
                                         <Text style={styles.Estacionamento}>Lojas</Text>
-                                        <Image 
-                                            source={{uri:item.Lojas}}
-                                            style={styles.EstacionamentoImage}
-                                        ></Image>
+                                        <Text style={styles.Estacionamento}>{item.Lojas}</Text>
                                     </View>
                                 </View>
                                 <Text style={styles.Descricao}>{item.descricao}</Text>

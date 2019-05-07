@@ -8,7 +8,7 @@ const estacaoDoc = [
         "estacionamento":"Pago",
         "entrada":"Franca",
         "horario": "Segunda a Sabado 10:00 as 00:00",
-        "Lojas":"https://cdn.pixabay.com/photo/2016/03/31/14/37/check-mark-1292787__340.png"
+        "Lojas":"Sim"
     },
     {
         "key": "598a684f78fee204ee51cd2f",
