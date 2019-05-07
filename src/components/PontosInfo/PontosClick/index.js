@@ -3,10 +3,11 @@ import {FlatList, Image, Platform, StyleSheet, Text, View, TouchableHighlight, B
 
 import flatListData from '../../../data/Pontos/estacaoDoc';
 import { ScrollView } from 'react-native-gesture-handler';
+import styles from './styles'
 
 export default class PontosClick extends Component{
     static navigationOptions = ({ navigation }) => {
-        let headerTitle = "Estação das Docas";
+        let headerTitle = "Informacoes";
         return { headerTitle }
     }
     constructor(props) {
@@ -28,20 +29,46 @@ export default class PontosClick extends Component{
         return(
             <View style={{
                 flex: 1,
-                marginTop: 1,
-                backgroundColor: '#6D3BD2'
+                backgroundColor: '#ffffff'
             }}>
                 <FlatList 
                 data={flatListData}
                 renderItem = {({item, index})=>{
                     return(
                             <View sytle={{flex:1}}>
-                                <Text style={{flex:1, padding:10, fontSize:18, color: 'white', justifyContent: 'center', alignSelf: 'center', margin: 10}}>{item.name}</Text>
+                                <Text style={styles.Name}>{item.name}</Text>
                                 <Image
                                     source={{uri:item.imageUrl}}
-                                    style={{ height: 400, margin: 5, flex: 1}}
+                                    style={styles.ImageShow}
                                 />
-                                <Text style={{flex:1, padding:20, fontSize:18, color: 'white'}}>{item.descricao}</Text>
+                                <View style={{
+                                    flex:1,
+                                    flexDirection:'row', 
+                                    justifyContent: 'space-evenly',
+                                    textAlign: 'center'
+                                }}>
+                                    <View style={styles.CaixinhaInfo}>
+                                        <Text style={styles.Estacionamento}>Estacionamento</Text>
+                                        <Image
+                                            source={{uri:item.estacionamento}}
+                                            style={styles.EstacionamentoImage}
+                                        ></Image>
+                                    </View>
+
+                                    <View style={styles.CaixinhaInfo}>
+                                        <Text style={styles.Estacionamento}>Entrada</Text>
+                                        <Text style={styles.Estacionamento}>{item.entrada}</Text>
+                                    </View>
+                                    
+                                    <View style={styles.CaixinhaInfo}>
+                                        <Text style={styles.Estacionamento}>Lojas</Text>
+                                        <Image 
+                                            source={{uri:item.Lojas}}
+                                            style={styles.EstacionamentoImage}
+                                        ></Image>
+                                    </View>
+                                </View>
+                                <Text style={styles.Descricao}>{item.descricao}</Text>
                             </View>
                     )
                 }}>
