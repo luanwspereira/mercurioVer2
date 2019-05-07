@@ -31,6 +31,51 @@ export default class PontosClick extends Component{
                 flex: 1,
                 backgroundColor: '#ffffff'
             }}>
+                            <View>
+                                <Text>{this.props.navigation.state.params.name}</Text>
+                                <Image
+                                    source={{uri:this.props.navigation.state.params.imageUrl}}
+                                />
+                                <View style={{
+                                    flex:1,
+                                    flexDirection:'row', 
+                                    justifyContent: 'space-evenly',
+                                    textAlign: 'center'
+                                }}>
+                                    <View >
+                                        <Text >Estacionamento</Text>
+                                        <Text >{this.props.navigation.state.params.estacionamento}</Text>
+                                    </View>
+
+                                    <View >
+                                        <Text >Entrada</Text>
+                                        <Text>{this.props.navigation.state.params.entrada}</Text>
+                                    </View>
+                                    
+                                    <View >
+                                        <Text>Lojas</Text>
+                                        <Text>{this.props.navigation.state.params.Lojas}</Text>
+                                    </View>
+                                </View>
+                                <Text style={styles.Descricao}>{this.props.navigation.state.params.descricao}</Text>
+                            </View>
+                   
+            <Button title="Solicitar Mercúrio para este ponto" color="#6032bc" destination={destination}  navigation={this.props.navigation} onPress={() => this.props.navigation.navigate('Map', {destination: destination})}></Button>
+            </View>
+        )
+    }
+}
+
+/*
+    render(){
+        const {destination} = this.state;
+        const {navigate} = this.props.navigation; 
+        console.log(this.props.navigation.state.params);
+        return(
+            <View style={{
+                flex: 1,
+                backgroundColor: '#ffffff'
+            }}>
                 <FlatList 
                 data={flatListData}
                 renderItem = {({item, index})=>{
@@ -72,3 +117,4 @@ export default class PontosClick extends Component{
         )
     }
 }
+*/

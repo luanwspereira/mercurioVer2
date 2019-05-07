@@ -93,7 +93,7 @@ const estacaoDoc = [
     {
         "key": "598a67c478fee204ee517777",
         "name": "Parque da Residência",               
-        "imageUrl": "https://bacana.news/wp-content/uploads/2017/03/Casa-das-11-Janelas.-Luiz-Braga-1.jpg",
+        "imageUrl": "https://2.bp.blogspot.com/-Q54ifHzhBKc/V1BCpwtD8zI/AAAAAAAADfs/Vd0drSpRmn4BISZ54oTYYktD1GUvznSzgCLcB/s1600/Parque_da_Residencia-02.jpg",
         "descricao": "A antiga residência oficial dos governadores paraenses é um ícone de luxo e beleza.",
         "descricaoPeep":"FALA",
         "estacionamento":"Não",
@@ -106,7 +106,7 @@ const estacaoDoc = [
     {
         "key": "598a67c478fee204ee518888",
         "name": "Bosque Rodrigues Alves",               
-        "imageUrl": "https://bacana.news/wp-content/uploads/2017/03/Casa-das-11-Janelas.-Luiz-Braga-1.jpg",
+        "imageUrl": "http://photos.wikimapia.org/p/00/04/71/81/61_big.jpg",
         "descricao": "O Bosque abriga uma importante diversidade de espécies da fauna e flora do ecossistema amazônico além dos monumentos das grutas, aquários chalés e viveiros.",
         "descricaoPeep":"FALA",
         "estacionamento":"Não",
@@ -119,7 +119,7 @@ const estacaoDoc = [
     {
         "key": "598a67c478fee204ee519999",
         "name": "Praça da República",               
-        "imageUrl": "https://bacana.news/wp-content/uploads/2017/03/Casa-das-11-Janelas.-Luiz-Braga-1.jpg",
+        "imageUrl": "https://acervodigital.unesp.br/bitstream/123456789/65959/1/Bel%C3%A9m%20Pra%C3%A7a%20da%20Rep%C3%BAblica%20%281%29.jpg",
         "descricao": "Praça com diversos pontos de venda em culinária, itens artesanais.",
         "descricaoPeep":"FALA",
         "estacionamento":"Não",
