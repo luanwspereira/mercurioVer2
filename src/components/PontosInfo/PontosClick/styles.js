@@ -60,5 +60,18 @@ export default styles = StyleSheet.create({
     },
     Lojas:{
 
+    },
+    Solicitar:{
+        height:50,
+        width:'100%',
+        marginBottom:7,
+        marginHorizontal:'auto',
+        backgroundColor:'#4f2a99',
+        padding:10,
+        elevation:1,
+        borderColor:'#4f2a99',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderRadius: 20,
     }
 })

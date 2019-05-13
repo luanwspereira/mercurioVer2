@@ -20,7 +20,7 @@ export default class RotasSug extends Component{
         return(
             <View style={{
                 flex: 1,
-                marginTop: 2
+                backgroundColor:'#6d3bd2'
             }}>
                 <FlatList 
                 data={rotasListData}
