@@ -107,7 +107,7 @@ export default class Map extends Component {
     render() {
         const {navigate} = this.props.navigation;
         const { region, duration, destination, location } = this.state;
-        console.log(this.props.navigation.state.params.destination);
+        console.log(this.state);
         return (
             <View style={{ flex: 1 }}>
                 <MapView
@@ -171,8 +171,7 @@ export default class Map extends Component {
                 </MapView>
                 {destination ? (
                     <Fragment>
-                        
-                        <Details destination={destination}  navigation={this.props.navigation}/>
+                        <Details destination={destination} duration={duration}  navigation={this.props.navigation}/>
                     </Fragment>
                 ) : (
                 <Fragment>
