@@ -28,6 +28,11 @@ export default styles = StyleSheet.create({
         borderBottomRightRadius: 10,
         paddingHorizontal:10
     },
+    CaixaDescricao:{
+        borderWidth:1,
+        borderColor:'#bdc3c7',
+        marginTop:5
+    },
     Descricao:{
         flex:1, 
         padding:20, 
@@ -52,14 +57,15 @@ export default styles = StyleSheet.create({
     Entrada:{
 
     },
-    Entrada:{
-
-    },
     Horario:{
-
+        height: 70
     },
     Lojas:{
 
+    },
+    SaibaMais:{
+        textAlign:'center',
+        fontSize:16
     },
     Solicitar:{
         height:50,

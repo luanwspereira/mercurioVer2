@@ -4,7 +4,7 @@ const rotasListData = [
         "name": "Culinária",
         "description": "Rota de culinária local.",
         "pagina": "CulinariaPage",
-        "imageUrl": "https://i.imgur.com/EpxXw0i.png",
+        "imageUrl": "https://i.imgur.com/dqTuds0.png",
         
     },
     {

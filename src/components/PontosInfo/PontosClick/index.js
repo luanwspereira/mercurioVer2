@@ -17,14 +17,25 @@ export default class PontosClick extends Component{
                 longitude: parseFloat(this.props.navigation.state.params.longitude, 10),
                 latitudeDelta: 0.0143,
                 longitudeDelta: 0.0134,
-                title: this.props.navigation.state.params.name},
+                title: this.props.navigation.state.params.name
+            },
+            toggle:true
         };
+    }
+
+    _onPress(){
+        const newState = !this.state.toggle;
+        this.setState({toggle:newState})
     }
 
     render(){
         const {destination} = this.state;
         const {navigate} = this.props.navigation; 
         console.log(this.props.navigation.state.params);
+
+        const {toggle} = this.state;
+        descricaoShowHide = toggle?this.props.navigation.state.params.descricao:this.props.navigation.state.params.descricaoPeep;
+
         return(
             <View style={{
                 flex: 1,
@@ -32,6 +43,7 @@ export default class PontosClick extends Component{
             }}>
                 <FlatList 
                 data={flatListData}
+                extraData={this.state}
                 renderItem = {({item, index})=>{
                     return(
                             <View sytle={{flex:1}}>
@@ -61,7 +73,13 @@ export default class PontosClick extends Component{
                                         <Text style={styles.Estacionamento}>{this.props.navigation.state.params.Lojas}</Text>
                                     </View>
                                 </View>
-                                <Text style={styles.Descricao}>{this.props.navigation.state.params.descricao}</Text>
+                                <TouchableOpacity 
+                                    onPress={()=>this._onPress()}
+                                    style={styles.CaixaDescricao}
+                                >
+                                    <Text style={styles.Descricao}>{descricaoShowHide}</Text>
+                                    <Text style={styles.SaibaMais}>Toque para saber mais/esconder</Text>
+                                </TouchableOpacity>
                             </View>
                     )
                 }}>
