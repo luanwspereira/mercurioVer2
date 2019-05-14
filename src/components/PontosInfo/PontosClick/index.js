@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {FlatList, Image, Platform, StyleSheet, Text, View, TouchableHighlight, Button} from 'react-native';
+import {FlatList, Image, Platform, StyleSheet, Text, View, TouchableOpacity, Button} from 'react-native';
 
 import flatListData from '../../../data/Pontos/zapio';
-import { ScrollView } from 'react-native-gesture-handler';
 import styles from './styles';
 
 export default class PontosClick extends Component{
@@ -68,7 +67,14 @@ export default class PontosClick extends Component{
                 }}>
 </FlatList>
                    
-            <Button title="Solicitar Mercúrio para este ponto" color="#6032bc" destination={destination}  navigation={this.props.navigation} onPress={() => this.props.navigation.navigate('Map', {destination: destination})}></Button>
+            <TouchableOpacity 
+                destination={destination} 
+                style={styles.Solicitar} 
+                navigation={this.props.navigation} 
+                onPress={() => this.props.navigation.navigate('Map', {destination: destination})}
+            >
+                <Text style={{fontSize:20, color:'white', textAlign:'center'}}>Solicitar Mercúrio para este ponto</Text>
+            </TouchableOpacity>
             </View>
         )
     }
