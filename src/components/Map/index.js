@@ -69,7 +69,7 @@ export default class Map extends Component {
             {
                 //enableHighAccuracy: true,
                 timeout: 2000,
-                maximumAge: 3000,
+                //maximumAge: 3000,
             }
         )
         this.setState({destination: this.props.navigation.state.params.destination});

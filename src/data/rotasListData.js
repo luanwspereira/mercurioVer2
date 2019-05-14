@@ -12,7 +12,7 @@ const rotasListData = [
         "name": "Natureza/História",
         "description": "Rota dos pontos históricos e biológicos.",
         "pagina": "HistoricoPage",
-        "imageUrl": "https://i.imgur.com/Ce2aZz6.png",
+        "imageUrl": "https://i.imgur.com/hmkcjoZ.png",
 
     },
     {
@@ -20,7 +20,7 @@ const rotasListData = [
         "name": "Cultura",
         "description": "Rota de cultura da localidade.",
         "pagina": "CulturaPage",
-        "imageUrl": "https://i.imgur.com/CjZJRug.png",
+        "imageUrl": "https://i.imgur.com/ZhrIuqh.png",
     },
 ];
 
